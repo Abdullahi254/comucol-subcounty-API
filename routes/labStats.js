@@ -4,28 +4,28 @@ const Labs = require('../models/Labs')
 // posting the lab data to the database
 route.post('/postlabstats',(req,res)=>{
     let errors = []
-    if(!req.body.testsDone||isNaN(req.body.testsDone)){
+    if(!req.body.testsDone||!Number.isInteger(req.body.testsDone)){
         errors.push({
             testsDone:'error'
         })
     }
-    else if(!req.body.positive||isNaN(req.body.positive)){
+    else if(!req.body.positive||!Number.isInteger(req.body.positive)){
         errors.push({
             positive:'error'
         })
     }
-    else if(!req.body.recovered||isNaN(req.body.recovered)){
+    else if(!req.body.recovered||!Number.isInteger(req.body.recovered)){
         errors.push({
             recovered:'error'
         })
     }
 
-    else if(!req.body.deaths||isNaN(req.body.deaths)){
+    else if(!req.body.deaths||!Number.isInteger(req.body.deaths)){
         errors.push({
             deaths:'error'
         })
     }
-    else if(!req.body.ward||!isNaN(req.body.ward)){
+    else if(!req.body.ward||Number.isInteger(req.body.ward)){
         errors.push({
             ward:'error'
         })
